@@ -67,6 +67,6 @@
     }
   }
 
-  var year = document.querySelector("[data-year]");
+  var year = document.querySelector("#year") || document.querySelector("[data-year]");
   if (year) year.textContent = new Date().getFullYear();
 })();
