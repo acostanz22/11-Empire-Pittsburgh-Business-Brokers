@@ -32,44 +32,49 @@ a:hover { color: var(--blue-bright); }
 .skip:focus { left: 12px; top: 12px; background: #fff; padding: 8px 12px; z-index: 99; }
 
 .topbar {
-  background: var(--white);
-  border-bottom: 1px solid var(--line);
-  font-size: 0.9rem;
+  display: none;
 }
-.topbar .wrap {
-  display: flex; justify-content: space-between; align-items: center;
-  min-height: 42px; gap: 16px;
-}
-.topbar a { color: var(--blue); font-weight: 700; }
 
 .site-header {
   background: var(--navy);
   position: sticky; top: 0; z-index: 50;
-  box-shadow: 0 8px 24px rgba(0,0,0,.18);
+  box-shadow: 0 6px 18px rgba(0,0,0,.16);
 }
 .site-header .wrap {
-  display: flex; align-items: center; justify-content: space-between;
-  min-height: 58px; gap: 16px;
+  display: flex; align-items: center; gap: 14px;
+  min-height: 52px;
 }
-.logo { display: flex; align-items: center; }
-.logo-text {
+.brand-title {
   color: #fff;
   font-family: "Libre Franklin", sans-serif;
   font-weight: 800;
-  font-size: 1rem;
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
   letter-spacing: .01em;
-  white-space: nowrap;
+  line-height: 1.15;
+  margin-right: auto;
 }
+.brand-title:hover { color: #fff; }
 nav { display: flex; align-items: center; gap: 2px; }
 nav a {
-  color: rgba(255,255,255,.88); font-weight: 600; font-size: .86rem;
-  padding: 8px 10px; border-radius: 8px;
+  color: rgba(255,255,255,.88); font-weight: 600; font-size: .84rem;
+  padding: 6px 10px; border-radius: 8px;
 }
 nav a:hover, nav a.active { color: #fff; background: rgba(255,255,255,.08); }
+.header-phone {
+  color: #fff;
+  font-weight: 800;
+  font-size: clamp(1.05rem, 1.8vw, 1.28rem);
+  letter-spacing: .01em;
+  white-space: nowrap;
+  order: 2;
+}
+.header-phone:hover { color: #cfe0ff; }
 .nav-toggle {
   display: none; background: transparent; border: 1px solid rgba(255,255,255,.25);
-  color: #fff; width: 44px; height: 44px; border-radius: 8px; cursor: pointer;
+  color: #fff; width: 40px; height: 40px; border-radius: 8px; cursor: pointer;
+  order: 3;
 }
+nav { order: 4; }
 
 .hero {
   background: var(--navy);
@@ -226,6 +231,14 @@ h2.section-title {
 .trust-bar li:last-child { border-right: 0; }
 
 .team { background: #fff; }
+.team-heading {
+  font-family: "Libre Franklin", sans-serif;
+  font-size: clamp(2.1rem, 4vw, 2.85rem);
+  color: var(--navy);
+  margin: 0 0 40px;
+  line-height: 1.15;
+  font-weight: 800;
+}
 .team-feature {
   display: grid;
   grid-template-columns: minmax(240px, 340px) 1fr;
@@ -257,16 +270,16 @@ h2.section-title {
 .team-feature-copy .role {
   color: var(--blue);
   font-weight: 800;
-  font-size: .8rem;
-  letter-spacing: .06em;
+  font-size: .95rem;
+  letter-spacing: .04em;
   text-transform: uppercase;
-  margin: 0 0 8px;
+  margin: 0 0 14px;
 }
 .team-feature-copy h3 {
   font-family: "Libre Franklin", sans-serif;
   font-size: clamp(1.6rem, 2.5vw, 2.1rem);
   color: var(--navy);
-  margin: 0 0 14px;
+  margin: 0 0 6px;
   line-height: 1.15;
 }
 .team-feature-copy p {
@@ -398,13 +411,18 @@ footer a { color: rgba(255,255,255,.78); }
   .founder img { width: 112px; height: 112px; }
   .nav-toggle { display: grid; place-items: center; }
   nav {
-    display: none; position: absolute; left: 0; right: 0; top: 58px;
+    display: none; position: absolute; left: 0; right: 0; top: 52px;
     background: var(--navy-deep); flex-direction: column; padding: 12px 16px 20px;
+    order: 5; width: 100%;
   }
   nav.open { display: flex; }
+  .brand-title { white-space: normal; max-width: 11.5rem; font-size: 1.05rem; }
+  .header-phone { font-size: 1.1rem; }
   .trust-bar li { border: 0; padding: 8px 0; }
 }
 
 @media (min-width: 961px) {
-  nav a { padding: 8px 10px; font-size: .86rem; }
+  nav a { padding: 6px 10px; font-size: .84rem; }
+  .header-phone { order: 4; margin-left: 8px; }
+  nav { order: 3; }
 }
